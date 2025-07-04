@@ -45,7 +45,7 @@ export default function ReceitasPage() {
                     </div>
                 </section>
                 <section className='rounded-3xl w-full bg-[url("/background/background.png")] bg-cover bg-center p-3'>
-                    <div className='flex flex-wrap gap-6'>
+                    <div className='flex flex-wrap gap-6 justify-center lg:justify-start'>
                         {filtrarReceita.map((receita, index) => (
                             <ReceitaCard key={index} receita={receita}/>
                         ))}
