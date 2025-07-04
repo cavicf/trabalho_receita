@@ -37,7 +37,7 @@ export default function ReceitaCard({receita}: ReceitaCardProps){
             <div className="flex mt-3 gap-3">
                 {/* Utilizamos a função pra transformar o nome da receita para passar como rota pra página de receita específica */}
                 <Link href={`/receitas/${url(receita.receita)}`} className="flex justify-center gap-2 bg-orange-500 w-full py-2 rounded-xl hover:bg-orange-400 transition-colors" ><Eye />Ver Receita</Link>
-                <button className="cursor-pointer border border-yellow-950 rounded-xl p-3"><Heart color={'#6b4134'} size={18}/></button>
+                <button className="cursor-pointer border border-[#A66541] rounded-xl p-3"><Heart color={'#A66541'} size={18}/></button>
             </div>
         </div>
     );
