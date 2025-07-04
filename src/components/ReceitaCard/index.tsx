@@ -5,11 +5,12 @@ import Link from "next/link";
 import { Eye, Heart } from 'lucide-react'
 import { useEffect, useState } from 'react';
 import { addFavorito, estaFavoritado, removerFavorito } from "@/lib/FavoritoActions";
+
 interface ReceitaCardProps{
     receita: Receita;
 }
 
-
+//Componente de card de receita, que exibe o tipo, nome e imagem da receita vinda da API externa
 export default function ReceitaCard({receita}: ReceitaCardProps){
 
     //Guarda o valor que controla se uma receita foi favoritada ou não, inicia como false

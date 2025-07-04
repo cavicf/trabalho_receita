@@ -2,10 +2,10 @@
 import api from '@/lib/api'
 import { Receita } from '@/lib/type';
 import { useEffect, useState } from 'react';
-import Image from 'next/image'
 import ReceitaCard from '@/components/ReceitaCard';
 import {Search} from 'lucide-react'
 
+//Página de explorar receitas, onde são exibidas as receitas vindas da API externa, na qual pode ser feita uma pesquisa por tipo e nome da receita
 export default function ReceitasPage() {
     //cria o estado inicial do array de receitas como vazio
     const [receitas, setReceitas] = useState<Receita[]>([]);
