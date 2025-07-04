@@ -22,7 +22,9 @@ export default function ReceitasPage() {
         fetchReceitas();
     }, []);
 
+    //PesquisarReceita guarda o valor que o usuario digitara, inicialmente o estado dele é vazio e conforme o usuario digita esse valor é atualizado
     const [pesquisarReceita, setPesquisarReceita] = useState('');
+    //Em seguida filtramos as receitas da API de acordo com o que o usuario digitou, que está guardado em pesquisarReceita
     const filtrarReceita = receitas.filter((receita) => (
         receita.receita.toLowerCase().includes(pesquisarReceita.toLowerCase()) || 
         receita.tipo.toLowerCase().includes(pesquisarReceita.toLowerCase())
