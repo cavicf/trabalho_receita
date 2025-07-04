@@ -1,4 +1,5 @@
 export interface Receita {
+    id: number,
     receita: string
     ingredientes: string
     modo_preparo: string

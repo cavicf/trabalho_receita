@@ -25,7 +25,7 @@ export default function ReceitasPage() {
     //PesquisarReceita guarda o valor que o usuario digitara, inicialmente o estado dele é vazio e conforme o usuario digita esse valor é atualizado
     const [pesquisarReceita, setPesquisarReceita] = useState('');
     //Em seguida filtramos as receitas da API de acordo com o que o usuario digitou, que está guardado em pesquisarReceita
-    const filtrarReceita = receitas.filter((receita) => (
+    const filtrarReceita = receitas.filter((receita: Receita) => (
         receita.receita.toLowerCase().includes(pesquisarReceita.toLowerCase()) || 
         receita.tipo.toLowerCase().includes(pesquisarReceita.toLowerCase())
     ));
@@ -48,8 +48,8 @@ export default function ReceitasPage() {
                 </section>
                 <section className='rounded-3xl w-full bg-[url("/background/background.png")] bg-cover bg-center p-3'>
                     <div className='flex flex-wrap gap-6 justify-center lg:justify-start'>
-                        {filtrarReceita.map((receita, index) => (
-                            <ReceitaCard key={index} receita={receita}/>
+                        {filtrarReceita.map((receita) => (
+                            <ReceitaCard key={receita.id} receita={receita}/>
                         ))}
                     </div>
                 </section>
