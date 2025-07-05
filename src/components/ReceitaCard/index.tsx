@@ -59,7 +59,7 @@ export default function ReceitaCard({receita}: ReceitaCardProps){
             </div>
             <div className="flex mt-3 gap-3">
                 {/* Utilizamos a função pra transformar o nome da receita para passar como rota pra página de receita específica */}
-                <Link href={`/receitas/${receita.id}`} className="flex justify-center items-center gap-2 bg-orange-500 w-full py-2 rounded-xl hover:bg-orange-400 transition-colors" ><Eye />Ver Receita</Link>
+                <Link href={`/receitas/${receita.id}`} className="flex justify-center items-center gap-2 bg-orange-500 w-full py-2 rounded-xl active:scale-95 hover:bg-orange-400 transition-colors" ><Eye />Ver Receita</Link>
                 {/* Chamamos a função de favoritar no evento de click */}
                 <button onClick={toggleFavorito} className="cursor-pointer active:scale-95 transition-transform border border-[#A66541] rounded-xl p-3">{favoritado ? <Heart color="red" fill="red" /> : <Heart color={'#A66541'}/>}</button>
             </div>
