@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eye, Heart } from 'lucide-react'
 import { useEffect, useState } from 'react';
-import { adicionarFavorito, removerFavorito } from '@/lib/favoritoActions';
+import { addFavorito, removerFavorito } from '@/lib/FavoritoActions';
 
 interface ReceitaCardProps {
     receita: Receita;
@@ -28,7 +28,7 @@ export default function ReceitaCard({ receita }: ReceitaCardProps) {
                 await removerFavorito(receita.id);
                 //se não, vamos adicionar ela na lista de favoritos
             } else {
-                await adicionarFavorito(receita);
+                await addFavorito(receita);
             }
             //por fim, alteramos o estado da receita estar favoritada ou não
             setFavoritado(!favoritado);
