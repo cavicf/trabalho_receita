@@ -1,0 +1,47 @@
+main {
+    height: 100vh;
+    width: 100%;
+    /* background: linear-gradient(135deg, #f06e42, #d44309); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    width: 90%;
+    max-width: 960px;
+    height: 600px;
+    background-color: white;
+    border-radius: 2rem;
+    display: flex;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.container-esquerda {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza tudo na horizontal */
+  padding: 1rem 5rem;
+}
+
+.img-logo {
+  margin-top: 0.5rem;         /* cola no topo */
+  margin-bottom: 2rem;   /* espaço entre o logo e o formulário */
+  width: 250;
+  height: auto;
+}
+
+.container-direita {
+    flex: 1;
+    position: relative;
+}
+
+.img-background {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
