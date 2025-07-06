@@ -1,1 +1,149 @@
-[]
+[
+  {
+    "id": 1,
+    "receita": "Frango Agridoce",
+    "ingredientes": "500g de peito de frango em cubos, 1 pimentão vermelho fatiado, 1 pimentão verde fatiado, 1 cebola cortada em pedaços grandes, 1 cenoura fatiada, 1 abacaxi em pedaços, 2 colheres de sopa de molho de soja, 2 colheres de sopa de vinagre de arroz, 3 colheres de sopa de ketchup, 2 colheres de sopa de açúcar, 1 colher de chá de amido de milho, sal e pimenta a gosto",
+    "modo_preparo": "1. Tempere o frango com sal e pimenta. 2. Em uma frigideira grande, aqueça um pouco de óleo e refogue o frango até dourar. 3. Adicione os pimentões, a cebola, a cenoura e refogue por mais alguns minutos. 4. Em uma tigela, misture o molho de soja, vinagre, ketchup, açúcar e amido de milho. 5. Adicione o abacaxi e a mistura de molho à frigideira. 6. Cozinhe até que o molho engrosse e cubra bem os ingredientes. 7. Sirva quente.",
+    "link_imagem": "https://media-cdn.tripadvisor.com/media/photo-s/1a/c8/90/f6/frango-agri-doce-rodizio.jpg",
+    "tipo": "agridoce",
+    "created_at": "2024-08-11T22:02:58.854Z",
+    "IngredientesBase": [
+      {
+        "id": 1,
+        "nomesIngrediente": [
+          "peito de frango",
+          "pimentão vermelho",
+          "pimentão verde",
+          "cebola",
+          "cenoura",
+          "abacaxi",
+          "molho de soja",
+          "vinagre de arroz",
+          "ketchup",
+          "açúcar",
+          "amido de milho",
+          "sal",
+          "pimenta"
+        ],
+        "receita_id": 1,
+        "created_at": "2024-08-11T22:02:58.854Z"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "receita": "Frango Agridoce",
+    "ingredientes": "500g de peito de frango em cubos, 1 pimentão vermelho fatiado, 1 pimentão verde fatiado, 1 cebola cortada em pedaços grandes, 1 cenoura fatiada, 1 abacaxi em pedaços, 2 colheres de sopa de molho de soja, 2 colheres de sopa de vinagre de arroz, 3 colheres de sopa de ketchup, 2 colheres de sopa de açúcar, 1 colher de chá de amido de milho, sal e pimenta a gosto",
+    "modo_preparo": "1. Tempere o frango com sal e pimenta. 2. Em uma frigideira grande, aqueça um pouco de óleo e refogue o frango até dourar. 3. Adicione os pimentões, a cebola, a cenoura e refogue por mais alguns minutos. 4. Em uma tigela, misture o molho de soja, vinagre, ketchup, açúcar e amido de milho. 5. Adicione o abacaxi e a mistura de molho à frigideira. 6. Cozinhe até que o molho engrosse e cubra bem os ingredientes. 7. Sirva quente.",
+    "link_imagem": "https://media-cdn.tripadvisor.com/media/photo-s/1a/c8/90/f6/frango-agri-doce-rodizio.jpg",
+    "tipo": "agridoce",
+    "created_at": "2024-08-11T22:02:58.854Z",
+    "IngredientesBase": [
+      {
+        "id": 1,
+        "nomesIngrediente": [
+          "peito de frango",
+          "pimentão vermelho",
+          "pimentão verde",
+          "cebola",
+          "cenoura",
+          "abacaxi",
+          "molho de soja",
+          "vinagre de arroz",
+          "ketchup",
+          "açúcar",
+          "amido de milho",
+          "sal",
+          "pimenta"
+        ],
+        "receita_id": 1,
+        "created_at": "2024-08-11T22:02:58.854Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "receita": "Salada Grega",
+    "ingredientes": "2 tomates cortados em cubos, 1 pepino fatiado, 1 cebola roxa fatiada, 1 pimentão verde fatiado, 100g de queijo feta esfarelado, 10 azeitonas pretas, 2 colheres de sopa de azeite de oliva, 1 colher de sopa de suco de limão, orégano seco a gosto, sal e pimenta a gosto",
+    "modo_preparo": "1. Em uma tigela grande, misture os tomates, o pepino, a cebola e o pimentão. 2. Adicione o queijo feta e as azeitonas. 3. Em uma tigela pequena, misture o azeite de oliva, o suco de limão, o orégano, o sal e a pimenta. 4. Despeje o molho sobre a salada e misture bem. 5. Sirva imediatamente.",
+    "link_imagem": "https://i.ytimg.com/vi/3wJH3dYE8Ng/maxresdefault.jpg",
+    "tipo": "salgado",
+    "created_at": "2024-08-11T22:03:18.948Z",
+    "IngredientesBase": [
+      {
+        "id": 2,
+        "nomesIngrediente": [
+          "tomates",
+          "pepino",
+          "cebola roxa",
+          "pimentão verde",
+          "queijo feta",
+          "azeitonas pretas",
+          "azeite de oliva",
+          "suco de limão",
+          "orégano",
+          "sal",
+          "pimenta"
+        ],
+        "receita_id": 2,
+        "created_at": "2024-08-11T22:03:18.948Z"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "receita": "Bolo de Chocolate",
+    "ingredientes": "2 xícaras de farinha de trigo, 1 xícara de açúcar, 1 xícara de chocolate em pó, 1 colher de sopa de fermento em pó, 1 xícara de leite, 3 ovos, 1/2 xícara de óleo",
+    "modo_preparo": "1. Preaqueça o forno a 180°C. 2. Em uma tigela, misture a farinha, o açúcar, o chocolate em pó e o fermento. 3. Adicione os ovos, o leite e o óleo, e misture bem até obter uma massa homogênea. 4. Despeje a massa em uma forma untada e enfarinhada. 5. Leve ao forno por aproximadamente 35 minutos ou até que, ao espetar um palito, ele saia limpo.",
+    "link_imagem": "https://i.ytimg.com/vi/QFMxJWh3mqE/maxresdefault.jpg",
+    "tipo": "doce",
+    "created_at": "2024-08-11T22:03:48.752Z",
+    "IngredientesBase": [
+      {
+        "id": 5,
+        "nomesIngrediente": [
+          "farinha de trigo",
+          "açúcar",
+          "chocolate em pó",
+          "fermento em pó",
+          "leite",
+          "ovos",
+          "óleo"
+        ],
+        "receita_id": 5,
+        "created_at": "2024-08-11T22:03:48.752Z"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "receita": "Frango Agridoce",
+    "ingredientes": "500g de peito de frango em cubos, 1 pimentão vermelho fatiado, 1 pimentão verde fatiado, 1 cebola cortada em pedaços grandes, 1 cenoura fatiada, 1 abacaxi em pedaços, 2 colheres de sopa de molho de soja, 2 colheres de sopa de vinagre de arroz, 3 colheres de sopa de ketchup, 2 colheres de sopa de açúcar, 1 colher de chá de amido de milho, sal e pimenta a gosto",
+    "modo_preparo": "1. Tempere o frango com sal e pimenta. 2. Em uma frigideira grande, aqueça um pouco de óleo e refogue o frango até dourar. 3. Adicione os pimentões, a cebola, a cenoura e refogue por mais alguns minutos. 4. Em uma tigela, misture o molho de soja, vinagre, ketchup, açúcar e amido de milho. 5. Adicione o abacaxi e a mistura de molho à frigideira. 6. Cozinhe até que o molho engrosse e cubra bem os ingredientes. 7. Sirva quente.",
+    "link_imagem": "https://media-cdn.tripadvisor.com/media/photo-s/1a/c8/90/f6/frango-agri-doce-rodizio.jpg",
+    "tipo": "agridoce",
+    "created_at": "2024-08-11T22:02:58.854Z",
+    "IngredientesBase": [
+      {
+        "id": 1,
+        "nomesIngrediente": [
+          "peito de frango",
+          "pimentão vermelho",
+          "pimentão verde",
+          "cebola",
+          "cenoura",
+          "abacaxi",
+          "molho de soja",
+          "vinagre de arroz",
+          "ketchup",
+          "açúcar",
+          "amido de milho",
+          "sal",
+          "pimenta"
+        ],
+        "receita_id": 1,
+        "created_at": "2024-08-11T22:02:58.854Z"
+      }
+    ]
+  }
+]

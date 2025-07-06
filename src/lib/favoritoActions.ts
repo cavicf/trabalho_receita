@@ -16,3 +16,9 @@ export async function removerFavorito(receita: string) {
     const atualizados = favoritos.filter((fav: Receita) => fav.receita !== receita);
     await ConexaoBD.armazenaBD(arquivo, atualizados);
 }
+
+// Função para verificar se uma receita está favoritada pelo id
+export async function estaFavoritado(id: number) {
+    const favoritos = await ConexaoBD.retornaBD(arquivo);
+    return favoritos.some((fav: Receita) => fav.id === id);
+}
