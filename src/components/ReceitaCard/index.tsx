@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Eye, Heart } from 'lucide-react'
 import { useEffect, useState } from 'react';
-import { addFavorito, removerFavorito } from '@/lib/FavoritoActions';
+import { addFavorito, estaFavoritado, removerFavorito } from '@/lib/FavoritoActions';
 
 interface ReceitaCardProps {
     receita: Receita;
@@ -17,8 +17,14 @@ export default function ReceitaCard({ receita }: ReceitaCardProps) {
     const [favoritado, setFavoritado] = useState(false);
 
     //Ao renderizar uma receita, verifica se ela está presente na lista de favoritos para preservar o estado de favoritado dela mesmo que as páginas troquem
-    // Removido o uso de estaFavoritado, pois não existe
-    // Se quiser implementar, crie a função em favoritoActions.ts
+    useEffect(() => {
+            const verificarFavorito = async () => {
+                if (receita && await estaFavoritado(receita.id)) {
+                    setFavoritado(true);
+                }
+            };
+            verificarFavorito();
+        }, [receita]);
 
     //Função assincrona para adicionar ou remover uma receita do arquivo de favoritos
     const toggleFavorito = async () => {
