@@ -11,16 +11,23 @@ export default function ReceitasPage() {
     const [receitas, setReceitas] = useState<Receita[]>([]);
     //Assim que a pagina renderizar, fazemos a requisição das receitas na API
     useEffect(() => {
-        const fetchReceitas = async () => {
-            try {
-                const resposta = await api.get<Receita[]>('/receitas/todas')
-                setReceitas(resposta.data);
-            } catch (error) {
-                console.error('Erro ao buscar receitas:', error);
-            }
+    const fetchReceitas = async () => {
+        try {
+            const resposta = await api.get<Receita[]>('/receitas/todas')
+
+            // Busca receitas locais do localStorage
+            const locais = JSON.parse(localStorage.getItem('receitas') || '[]')
+
+            // Junta as receitas da API com as locais
+            const todas = [...resposta.data, ...locais]
+
+            setReceitas(todas);
+        } catch (error) {
+            console.error('Erro ao buscar receitas:', error);
         }
-        fetchReceitas();
-    }, []);
+    }
+    fetchReceitas();
+}, []);
 
     //PesquisarReceita guarda o valor que o usuario digitara, inicialmente o estado dele é vazio e conforme o usuario digita esse valor é atualizado
     const [pesquisarReceita, setPesquisarReceita] = useState('');
