@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { salvarReceitaCriada } from '@/lib/CadastrarActions'
+import { Receita } from '@/lib/type'
 
 export default function CadastrarReceita() {
   const router = useRouter()
@@ -12,7 +14,6 @@ export default function CadastrarReceita() {
   const [tipo, setTipo] = useState('Salgado')
   const [imagem, setImagem] = useState<string | null>(null)
 
-  // Faz o upload da imagem em base64
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
@@ -22,26 +23,29 @@ export default function CadastrarReceita() {
     }
   }
 
-  const handleSalvar = () => {
-    // transforma passos em: "1. passo, 2. passo, ..."
+  const handleSalvar = async () => {
     const passos = modoPreparo
       .split(',')
       .map((passo, i) => `${i + 1}. ${passo.trim()}`)
       .join(', ')
 
-    const novaReceita = {
-      id: Date.now().toString(),
-      receita: receita,
-      ingredientes: ingredientes,
+    const novaReceita: Receita = {
+      id: Date.now(),
+      receita,
+      ingredientes,
       modo_preparo: passos,
       tipo,
       link_imagem: imagem ?? '',
+      IngredientesBase: ingredientes.split(',').map(item => item.trim()), // ← Correção aqui
     }
 
-    const receitasExistentes = JSON.parse(localStorage.getItem('receitas') || '[]')
-    localStorage.setItem('receitas', JSON.stringify([...receitasExistentes, novaReceita]))
-
-    router.push('/receitas')
+    try {
+      await salvarReceitaCriada(novaReceita)
+      router.push('/receitas')
+    } catch (error) {
+      alert('Erro ao salvar receita.')
+      console.error(error)
+    }
   }
 
   return (
@@ -101,12 +105,28 @@ export default function CadastrarReceita() {
         {/* Upload da imagem */}
         <div className="flex flex-col items-center justify-center border-2 border-dashed rounded-md p-4 text-center">
           {imagem ? (
-            <img src={imagem} alt="Prévia" className="w-full rounded-md" />
+            <>
+              <img src={imagem} alt="Prévia" className="w-full rounded-md" />
+              <button
+                className="mt-2 text-red-600 underline"
+                onClick={() => setImagem(null)}
+              >
+                Trocar imagem
+              </button>
+            </>
           ) : (
             <>
               <p className="text-[#4A2F1B] mb-2">Imagem da receita</p>
-              <input type="file" accept="image/*" onChange={handleImageUpload} />
-              <p className="text-sm text-gray-500 mt-2">Clique para fazer upload</p>
+              <label className="cursor-pointer text-blue-600 underline text-sm mt-2">
+  Clique para fazer upload
+  <input
+    type="file"
+    accept="image/*"
+    onChange={handleImageUpload}
+    className="hidden"
+  />
+</label>
+
             </>
           )}
         </div>
@@ -115,7 +135,7 @@ export default function CadastrarReceita() {
       {/* Botões */}
       <div className="flex justify-between mt-6">
         <button
-          onClick={() => router.push('/receitas')}
+          onClick={() => router.push('/')}
           className="border border-orange-600 text-orange-600 px-6 py-2 rounded hover:bg-orange-50"
         >
           CANCELAR
