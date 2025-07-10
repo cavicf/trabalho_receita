@@ -28,7 +28,7 @@ export default function ReceitaUsuarioCard({ receita, onExcluir }: ReceitaCardPr
             </div>
             <div className="flex mt-3 gap-3">
                 <Link href={`/favoritos/${receita.id}`} className="flex justify-center items-center gap-2 bg-orange-500 w-full py-2 rounded-xl active:scale-95 hover:bg-orange-400 transition-colors" ><Eye />Ver Receita</Link>
-                <button onClick={() => alert('Função de editar ainda não implementada')} className="cursor-pointer active:scale-95 transition-transform border border-[#A66541] rounded-xl p-3"><Edit size={18} color="#A66541"/></button>
+                <Link href={`/editar/${receita.id}`} className="cursor-pointer active:scale-95 transition-transform border border-[#A66541] rounded-xl p-3 flex items-center justify-center"><Edit size={18} color="#A66541" /></Link>
                 <button onClick={() => onExcluir(receita.id)} className="cursor-pointer active:scale-95 transition-transform border border-[#A66541] rounded-xl p-3"><Trash size={18} color="#A66541"/></button>
             </div>
         </div>
