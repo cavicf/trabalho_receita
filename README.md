@@ -71,8 +71,7 @@ Criar uma aplicação web completa com CRUD de receitas, integração com API ex
 
 ```bash
 git clone https://github.com/cavicf/trabalho_receita.git
-git checkout develop
-git pull origin develop
+git pull origin main
 ```
 
 2. **Posteriormente crie um arquivo .env dentro da pasta do projeto e copie o seguinte TOKEN nele:**
