@@ -9,7 +9,7 @@ interface ReceitaCardProps {
     onExcluir: (id: number) => void;
 }
 
-//Componente de card de receita, que exibe o tipo, nome e imagem da receita vinda da API externa
+//Componente de card de receita, que exibe o tipo, nome e imagem da receita cadastrada pelo usuario
 export default function ReceitaUsuarioCard({ receita, onExcluir }: ReceitaCardProps) {
 
     return (
@@ -27,7 +27,6 @@ export default function ReceitaUsuarioCard({ receita, onExcluir }: ReceitaCardPr
                 <h3 className="text-yellow-950 font-medium">{receita.receita}</h3>
             </div>
             <div className="flex mt-3 gap-3">
-                {/* Utilizamos a função pra transformar o nome da receita para passar como rota pra página de receita específica */}
                 <Link href={`/favoritos/${receita.id}`} className="flex justify-center items-center gap-2 bg-orange-500 w-full py-2 rounded-xl active:scale-95 hover:bg-orange-400 transition-colors" ><Eye />Ver Receita</Link>
                 <button onClick={() => alert('Função de editar ainda não implementada')} className="cursor-pointer active:scale-95 transition-transform border border-[#A66541] rounded-xl p-3"><Edit size={18} color="#A66541"/></button>
                 <button onClick={() => onExcluir(receita.id)} className="cursor-pointer active:scale-95 transition-transform border border-[#A66541] rounded-xl p-3"><Trash size={18} color="#A66541"/></button>

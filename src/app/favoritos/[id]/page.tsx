@@ -33,8 +33,6 @@ export default function ReceitaEspecificaPage() {
     }, [id]);
 
 
-    const [favoritado, setFavoritado] = useState(false);
-
     if (carregando) {
         return (
             <main className='flex flex-grow items-center justify-center bg-[#F2EBE8]'>
@@ -53,15 +51,15 @@ export default function ReceitaEspecificaPage() {
     const router = useRouter();
 
     async function handleExcluir() {
-      if (!receita) return;
+        if (!receita) return;
 
-      try {
-        await excluirReceita(receita.id);
-        router.push('/favoritos');
-      } catch (error) {
-        console.error('Erro ao excluir receita:', error);
-        alert('Não foi possível excluir a receita.');
-      }
+        try {
+            await excluirReceita(receita.id);
+            router.push('/favoritos');
+        } catch (error) {
+            console.error('Erro ao excluir receita:', error);
+            alert('Não foi possível excluir a receita.');
+        }
     }
 
     return (
