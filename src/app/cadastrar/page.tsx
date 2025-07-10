@@ -10,7 +10,7 @@ export default function CadastrarReceita() {
 
   const [receita, setReceita] = useState('')
   const [ingredientes, setIngredientes] = useState('')
-  const [modoPreparo, setModoPreparo] = useState('')
+  const [modo_preparo, setModoPreparo] = useState('')
   const [tipo, setTipo] = useState('Salgado')
   const [imagem, setImagem] = useState<string | null>(null)
 
@@ -24,24 +24,19 @@ export default function CadastrarReceita() {
   }
 
   const handleSalvar = async () => {
-    const passos = modoPreparo
-      .split(',')
-      .map((passo, i) => `${i + 1}. ${passo.trim()}`)
-      .join(', ')
 
     const novaReceita: Receita = {
       id: Date.now(),
       receita,
       ingredientes,
-      modo_preparo: passos,
+      modo_preparo,
       tipo,
       link_imagem: imagem ?? '',
-      IngredientesBase: ingredientes.split(',').map(item => item.trim()), // ← Correção aqui
     }
 
     try {
       await salvarReceitaCriada(novaReceita)
-      router.push('/receitas')
+      router.push('/favoritos')
     } catch (error) {
       alert('Erro ao salvar receita.')
       console.error(error)
@@ -83,7 +78,7 @@ export default function CadastrarReceita() {
               placeholder="Ex.: Cozinhe o macarrão, Adicione o molho, Mexa bem"
               className="w-full border p-2 rounded mt-1"
               rows={3}
-              value={modoPreparo}
+              value={modo_preparo}
               onChange={(e) => setModoPreparo(e.target.value)}
             />
           </label>

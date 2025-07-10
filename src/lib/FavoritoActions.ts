@@ -25,3 +25,7 @@ export async function estaFavoritado(id: number) {
     const favoritos = await ConexaoBD.retornaBD(arquivo)
     return favoritos.some((receita: Receita) => receita.id === id);
 }
+
+export async function getReceitasFavoritas(): Promise<Receita[]> {
+    return await ConexaoBD.retornaBD(arquivo);
+}
