@@ -76,7 +76,7 @@ export default function CadastrarReceita() {
             <label className="text-[#803C1C] font-semibold text-sm">
               Modo de preparo (separe por numeração e ponto final) *
               <textarea
-                placeholder="Ex.: 1.Cozinhe o macarrão. 2.Adicione o molho. 3.Mexa bem."
+                placeholder="Ex.: 1. Cozinhe o macarrão. 2. Adicione o molho. 3. Mexa bem."
                 className="w-full border border-[#803C1C]/30 p-3 rounded-xl mt-1 bg-white"
                 rows={3}
                 value={modo_preparo}
