@@ -22,23 +22,28 @@ const ValidacaoLogin = z.object({
 })
 
 export default function PaginaLogin(){
-
     
+    //formData, parametros que viarem da extracao
+    //FormData: dados extraidos de um formulario
     const executarLogin = async (formData: FormData) => {
 
-        //Extracao credenciais login
+        //Extracao credenciais login pelos inputs do usuário
         const credenciais: LoginCredenciais = {
             email: formData.get('email') as string,
             password: formData.get('password') as string
         }
 
         //Validando credenciais com a biblioteca zod
+        //Safeparse: validação das credenciais pelo zod || 
+        //Puxa a funcao de ValidacaoLogin, se nao tiver no formato configurado na funcao devolve um erro
         const validacaoLoginUsuario = ValidacaoLogin.safeParse(credenciais)
+
         //Caso nao haja sucesso
         if(!validacaoLoginUsuario.success)
         {
-            //Vai devolver varios erros junto 'issues'
-            //Para cada erro 'issue' vai concatenar na mensagem final
+            //Vai devolver varios erros junto: 'issues'
+            //Para cada erro 'issue': vai concatenar na mensagem final
+            //Concatenacao das mensagens
             let mensagemErro = '';
             validacaoLoginUsuario.error.issues.forEach((issue) => {
                 mensagemErro = mensagemErro + issue.message + '. ';
@@ -51,10 +56,13 @@ export default function PaginaLogin(){
         }
 
         //Realizacao da Autenticao do Login do Usuario
-        //Chamada de uma funcao externa (outro arquivo) que nao possui nenhuma funcionalidade do lado do cliente
-        //Essa funcao roda do lado do servidor e nao possui nenhum funcionalidade do cliente
+        //Chamada de uma funcao externa (outro arquivo)
+        //Essa funcao roda do lado do servidor ('use server') e nao possui nenhum funcionalidade do cliente
         //Resolve o problema de quando precisamos de funcionalidades do cliente e depois rodar algum processo do lado do servidor
         const resultLoginUsuario = await validacaoCredenciais(credenciais as LoginCredenciais)
+        //So vai entrar no if, se nao conseguiu logar e criar uma sessao
+        //Ou seja, recebeu uma resposta '.error'
+        //A "resposta" do '.sucess' é o proprio redirecionamento para /home
         if(resultLoginUsuario)
         {
             //Estou passando a mensagem de erro que o servidor devolveu

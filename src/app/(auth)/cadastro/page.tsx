@@ -5,6 +5,7 @@ import Image from 'next/image'
 import '@/app/style/login-cadastro.css';
 import z from 'zod'; 
 import toast from 'react-hot-toast'; 
+import Link from 'next/link'; 
 import { criacaoUsuario } from '@/lib/credenciais';
 import { redirect } from 'next/navigation';
 
@@ -16,6 +17,7 @@ export interface UsuarioCredenciais{
 }
 
 //Regra de validacao para os campos de criacao de usuario com a biblioteca zod
+//Funcao para validar is dados do front-end
 const ValidacaoCriacaoUsuario = z.object({
     nomeUsuario: z.string().trim().min(1, 'Nome é obrigatório'),
     email: z.string().trim().email('Email no formato incorreto'),
@@ -23,17 +25,21 @@ const ValidacaoCriacaoUsuario = z.object({
     confirmaPassword: z.string({message: 'Insira novamente a senha'}).trim().min(8, {message: 'Senha requer pelo menos 8 caracteres'})
 })
 //Regra de validacao para validar se a senhas esta correta
-//Utiliza o '.refine' da biblioteca zod
+//Utiliza o '.refine' da biblioteca zod | permite validar regras personalizadas
+//Neste caso, valido se a senha e a confirmacao de senha sao iguais
 .refine((dados) => dados.password === dados.confirmaPassword, {
-    message: "Senhas não são iguas",
-    path: ['confirmaPassword']
+    message: "Senhas não são iguas", //passa esta mensagem no '.error'
+    path: ['confirmaPassword'] //'.error' eh gerado neste campo
 });
 
 
 export default function CriacaoUsuario() {
     
+    //formData, parametros que viarem da extracao
+    //FormData: dados extraidos de um formulario
     const criarUsuario = async (formData: FormData) => {
         
+        //Puxo os dados dos inputos do formulario
         const dadosNovoUsuario = {
             nomeUsuario: formData.get('nomeUsuario') as string,
             email: formData.get('email') as string,
@@ -41,12 +47,14 @@ export default function CriacaoUsuario() {
             confirmaPassword: formData.get('confirmaPassword') as string
         }
 
+        //Funcao do zod para validar se os campos de cadastro estao corretos
         const validacaoCadastroUsuario = ValidacaoCriacaoUsuario.safeParse(dadosNovoUsuario)
 
+        //Se receber algo que nao seja um '.success' na validacao: vai devolver um '.error'
         if(!validacaoCadastroUsuario.success)
         {
-            //Vai devolver varios erros junto 'issues'
-            //Para cada erro 'issue' vai concatenar na mensagem final
+            //Recebe varios erros junto: 'issues'
+            //Para cada erro 'issue': concatena na mensagem final
             let mensagemErro = ''
             validacaoCadastroUsuario.error.issues.forEach((issue) => {
                 mensagemErro = mensagemErro + issue.message + '. '
@@ -123,6 +131,9 @@ export default function CriacaoUsuario() {
 
             </div>
             <button className="botão">Criar conta</button>
+            <div className="cadastro-link">
+                Já possui uma conta? <Link href={'/login'}>Fazer login</Link>
+            </div>
         </form>
     )
 }

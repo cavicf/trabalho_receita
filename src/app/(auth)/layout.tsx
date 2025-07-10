@@ -3,6 +3,9 @@ import Image from "next/image";
 import '@/app/style/auth-layout.css';
 import { Toaster } from "react-hot-toast";
 
+//Pasta com nome entre parênteses (auth) representa um grupo de rotas
+//Puxa o nome da pasta que ta dentro do (auth)
+
 export default function AuthLayout({children}: {children: React.ReactNode})
 {
     return(

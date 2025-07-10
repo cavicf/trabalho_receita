@@ -19,7 +19,7 @@ export default function Header() {
                         priority
                     />
                 </Link>
-                <nav className="flex items-center gap-2 ml-8">
+                <nav className="flex items-centeSr gap-2 ml-8">
                     <NavbarButton href="/">Home</NavbarButton>
                     <NavbarButton href="/favoritos">Receitas favoritas</NavbarButton>
                     <NavbarButton href="/receitas">Explorar receitas</NavbarButton>

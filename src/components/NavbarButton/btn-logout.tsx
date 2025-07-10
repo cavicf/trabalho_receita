@@ -17,7 +17,7 @@ export default function LogoutButton(){
                 <circle cx="12" cy="8" r="4" stroke="#A66541" strokeWidth="2" />
                 <path d="M4 20c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="#A66541" strokeWidth="2" />
                 </svg>
-                Logout
+                Sair
             </button>
         </form>
 
