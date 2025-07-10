@@ -1,6 +1,6 @@
 # 🍽️ PratoPronto
 
-**PratoPronto** é uma plataforma colaborativa de receitas culinárias desenvolvida para a disciplina de Projeto Integrador. Com uma interface intuitiva e funcionalidades modernas, permite que os usuários explorem, cadastrem, editem e favoritem receitas — sejam elas criadas por outros usuários ou obtidas por meio de uma API pública.
+**PratoPronto** é uma plataforma colaborativa de receitas culinárias desenvolvida para a disciplina de Programação Web. Com uma interface intuitiva e funcionalidades modernas, permite que os usuários explorem, cadastrem, editem e favoritem receitas — sejam elas criadas por outros usuários ou obtidas por meio de uma API pública.
 
 ---
 
