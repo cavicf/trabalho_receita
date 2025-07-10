@@ -6,5 +6,4 @@ export interface Receita {
     modo_preparo: string
     link_imagem: string
     tipo: string
-    IngredientesBase: {}
 }

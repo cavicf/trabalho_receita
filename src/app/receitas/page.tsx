@@ -14,7 +14,9 @@ export default function ReceitasPage() {
         const fetchReceitas = async () => {
             try {
                 const resposta = await api.get<Receita[]>('/receitas/todas')
-                setReceitas(resposta.data);
+                if(resposta){
+                    setReceitas(resposta.data);
+                }
             } catch (error) {
                 console.error('Erro ao buscar receitas:', error);
             }

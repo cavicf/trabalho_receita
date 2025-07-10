@@ -3,6 +3,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { Receita } from './type'
+import ConexaoBD from './conexaoDB'
 
 // Caminho para o arquivo JSON DENTRO da pasta app/db
 const CAMINHO_ARQUIVO = path.join(process.cwd(), 'src', 'db', 'receitas-cadastradas.json')
@@ -29,4 +30,15 @@ export async function salvarReceitaCriada(novaReceita: Receita) {
     console.error('Erro ao salvar receita:', error)
     throw new Error('Erro ao salvar receita no arquivo JSON')
   }
+}
+
+export async function getReceitasCadastradas(): Promise<Receita[]> {
+  return await ConexaoBD.retornaBD("receitas-cadastradas.json");
+}
+
+export async function excluirReceita(id: number) {
+  const receitas: Receita[] = await ConexaoBD.retornaBD("receitas-cadastradas.json");
+  const atualizadas = receitas.filter(r => r.id !== id);
+  await ConexaoBD.armazenaBD("receitas-cadastradas.json", atualizadas);
+  return atualizadas;
 }
