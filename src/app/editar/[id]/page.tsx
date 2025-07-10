@@ -26,96 +26,98 @@ export default function Page({ params }: { params: { id: string } }) {
         await editarReceita(receitaEditada)
         redirect('/favoritos')
       }}
-      className="min-h-screen w-full p-6 bg-[#fff2ed] text-[#5e2b1a] flex flex-col justify-center"
+      className="min-h-screen bg-gradient-to-br from-[#f06e42] to-[#d44309] flex items-center justify-center px-4 py-10"
     >
-      <h1 className="text-2xl font-bold text-center text-orange-600 mb-6">Editar receita</h1>
+      <div className="w-full max-w-7xl bg-[#FFF4EF] rounded-3xl p-12 shadow-2xl border border-orange-200 flex flex-col">
+        <h1 className="text-center text-3xl font-bold text-[#EA4E1B] mb-10">Editar receita</h1>
 
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1 space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">Nome da receita *</label>
-            <input
-              name="receita"
-              defaultValue={receita.receita}
-              placeholder="Ex.: Macarronada"
-              className="bg-[#fff2ed] border border-orange-300 rounded-xl p-3 w-full"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1">Ingredientes (separe por vírgula) *</label>
-            <textarea
-              name="ingredientes"
-              defaultValue={receita.ingredientes}
-              placeholder="Ex.: Uma xícara de creme de leite, 200g de macarrão"
-              className="bg-[#fff2ed] border border-orange-300 rounded-xl p-3 w-full"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1">Modo de preparo (separe por vírgula) *</label>
-            <textarea
-              name="modo_preparo"
-              defaultValue={receita.modo_preparo}
-              placeholder="Ex.: 1. Cozinhe o macarrão. 2. Adicione o molho. 3. Mexa bem."
-              className="bg-[#fff2ed] border border-orange-300 rounded-xl p-3 w-full"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1">Tipo *</label>
-            <select
-              name="tipo"
-              defaultValue={receita.tipo}
-              className="bg-[#fff2ed] border border-orange-300 rounded-xl p-3 w-full"
-              required
-            >
-              <option value="Salgado">Salgado</option>
-              <option value="Doce">Doce</option>
-              <option value="Agridoce">Agridoce</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="w-full md:w-1/2">
-          <label className="block text-sm font-medium mb-2">Imagem da receita</label>
-          <div className="relative border-2 border-dashed border-orange-300 rounded-xl w-full h-60 flex items-center justify-center overflow-hidden bg-white">
-            {receita.link_imagem ? (
-              <img
-                src={receita.link_imagem}
-                alt="Imagem atual"
-                className="object-contain max-h-full"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
+          {/* Formulário */}
+          <div className="flex flex-col gap-6">
+            <label className="text-[#803C1C] font-semibold text-sm">
+              Nome da receita *
+              <input
+                name="receita"
+                defaultValue={receita.receita}
+                placeholder="Ex.: Macarronada"
+                className="w-full border border-[#803C1C]/30 p-3 rounded-xl mt-1 bg-white"
+                required
               />
+            </label>
+
+            <label className="text-[#803C1C] font-semibold text-sm">
+              Ingredientes (separe por vírgula) *
+              <textarea
+                name="ingredientes"
+                defaultValue={receita.ingredientes}
+                placeholder="Ex.: Uma xícara de creme de leite, 200g de macarrão"
+                className="w-full border border-[#803C1C]/30 p-3 rounded-xl mt-1 bg-white"
+                rows={3}
+                required
+              />
+            </label>
+
+            <label className="text-[#803C1C] font-semibold text-sm">
+              Modo de preparo (separe por numeração e ponto final) *
+              <textarea
+                name="modo_preparo"
+                defaultValue={receita.modo_preparo}
+                placeholder="Ex.: 1. Cozinhe o macarrão. 2. Adicione o molho. 3. Mexa bem."
+                className="w-full border border-[#803C1C]/30 p-3 rounded-xl mt-1 bg-white"
+                rows={3}
+                required
+              />
+            </label>
+
+            <label className="text-[#803C1C] font-semibold text-sm">
+              Tipo *
+              <select
+                name="tipo"
+                defaultValue={receita.tipo}
+                className="w-full border border-[#803C1C]/30 p-3 rounded-xl mt-1 bg-white"
+                required
+              >
+                <option value="Salgado">Salgado</option>
+                <option value="Doce">Doce</option>
+                <option value="Agridoce">Agridoce</option>
+              </select>
+            </label>
+          </div>
+
+          {/* Imagem */}
+          <div className="flex flex-col items-center justify-center overflow-hidden border-2 border-dashed border-[#EA4E1B]/40 rounded-2xl bg-white h-[440px]">
+            {receita.link_imagem ? (
+              <>
+                <img
+                  src={receita.link_imagem}
+                  alt="Imagem atual"
+                  className="max-h-[350px] object-contain w-full rounded-xl"
+                />
+              </>
             ) : (
               <span className="text-sm text-orange-600 text-center">
                 Nenhuma imagem disponível
               </span>
             )}
+            <input type="hidden" name="imagemData" defaultValue={receita.link_imagem} />
           </div>
-          <input
-            type="hidden"
-            name="imagemData"
-            defaultValue={receita.link_imagem}
-          />
         </div>
-      </div>
 
-      <div className="flex justify-between mt-6">
-        <a
-          href="/favoritos"
-          className="bg-white border border-orange-500 text-orange-600 px-6 py-2 rounded-xl font-semibold hover:bg-orange-50 transition"
-        >
-          CANCELAR
-        </a>
-        <button
-          type="submit"
-          className="bg-orange-500 text-white px-6 py-2 rounded-xl font-semibold hover:bg-orange-400 transition"
-        >
-          SALVAR
-        </button>
+        {/* Botões */}
+        <div className="flex flex-col gap-4 mt-8 md:flex-row justify-between">
+          <a
+            href="/favoritos"
+            className="w-full md:w-[200px] text-center border border-orange-500 text-orange-600 font-semibold py-3 rounded-md hover:bg-orange-50 active:scale-90 transition-transform"
+          >
+            CANCELAR
+          </a>
+          <button
+            type="submit"
+            className="w-full md:w-[200px] bg-orange-600 text-white font-bold py-3 rounded-md hover:bg-orange-700 active:scale-90 transition-transform"
+          >
+            SALVAR
+          </button>
+        </div>
       </div>
     </form>
   )
