@@ -45,7 +45,7 @@ export default function FavoritosPage() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 w-full max-w-4xl px-4">
           <div className='relative w-full'>
             <Search className='absolute left-4 top-1/2 transform -translate-y-1/2' size={18} color={'#A66541'} />
-            <input type="text" placeholder='Pesquisar receita' className='w-full text-[#A66541] py-3 px-11 bg-[#F2EBE8] rounded-md  placeholder-[#A66541]' value={busca} onChange={(e: React.ChangeEvent<HTMLInputElement>) => (setBusca(e.target.value))} />
+            <input type="text" placeholder='Pesquisar receita' className='w-full text-[#A66541] py-3 px-11 bg-[#F2EBE8] outline-none rounded-md  placeholder-[#A66541]' value={busca} onChange={(e: React.ChangeEvent<HTMLInputElement>) => (setBusca(e.target.value))} />
           </div>
           <button
             onClick={() => router.push('/cadastrar')}

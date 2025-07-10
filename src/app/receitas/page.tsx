@@ -45,7 +45,7 @@ export default function ReceitasPage() {
                     </div>
                     <div className='relative w-full'>
                         <Search className='absolute left-4 top-1/2 transform -translate-y-1/2' size={18} color={'#A66541'} />
-                        <input type="text" placeholder='Pesquisar receita' className='w-full text-[#A66541] py-3 px-11 bg-[#F2EBE8] rounded-md  placeholder-[#A66541]' value={pesquisarReceita} onChange={(e: React.ChangeEvent<HTMLInputElement>) => (setPesquisarReceita(e.target.value))} />
+                        <input type="text" placeholder='Pesquisar receita' className='w-full text-[#A66541] py-3 px-11 bg-[#F2EBE8] rounded-md outline-none  placeholder-[#A66541]' value={pesquisarReceita} onChange={(e: React.ChangeEvent<HTMLInputElement>) => (setPesquisarReceita(e.target.value))} />
                     </div>
                 </section>
                 <section className='rounded-3xl w-full bg-[url("/background/background.png")] bg-cover bg-center p-3'>
