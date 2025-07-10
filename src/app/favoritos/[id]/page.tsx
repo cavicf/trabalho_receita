@@ -10,8 +10,9 @@ import { excluirReceita, getReceitasCadastradas } from '@/lib/CadastrarActions';
 import { ChevronLeft, Trash } from 'lucide-react';
 
 
-export default function ReceitaEspecificaPage() {
+export default function ReceitaEspecificaUsuarioPage() {
     const { id } = useParams();
+    const router = useRouter();
     const [receita, setReceita] = useState<Receita | null>(null);
     const [carregando, setCarregando] = useState(true);
 
@@ -48,7 +49,6 @@ export default function ReceitaEspecificaPage() {
     const ingredientes = receita.ingredientes.split(',');
     const modoPreparo = receita.modo_preparo.split(/(?=\d+\.\s)/);
 
-    const router = useRouter();
 
     async function handleExcluir() {
         if (!receita) return;
