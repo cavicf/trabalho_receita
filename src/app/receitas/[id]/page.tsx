@@ -20,9 +20,11 @@ export default function ReceitaEspecificaPage() {
         async function fetchReceita() {
             try {
                 const resposta = await api.get<Receita>(`/receitas/${id}`);
-                setReceita(resposta.data);
+                if(resposta){
+                    setReceita(resposta.data);
+                }
             } catch (error) {
-                console.error('Erro ao encontrar receita: ', error)
+                console.error('Erro ao encontrar receita extern:', error)
             } finally {
                 setCarregando(false)
             }
